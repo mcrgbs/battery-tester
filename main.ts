@@ -4,9 +4,23 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     millivolt = pins.analogReadPin(AnalogPin.P0) * (1000 / 340)
     if (millivolt < 1200) {
-        music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        basic.pause(2000)
     } else {
-        music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            # . . . #
+            . # # # .
+            `)
+        basic.pause(2000)
     }
     basic.showNumber(millivolt)
 })
