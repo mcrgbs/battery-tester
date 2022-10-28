@@ -2,8 +2,8 @@ input.onButtonPressed(Button.A, function () {
     basic.showNumber(pins.analogReadPin(AnalogPin.P0))
 })
 input.onButtonPressed(Button.B, function () {
-    millivolt = pins.analogReadPin(AnalogPin.P0)
-    if (millivolt == millivolt * (1000 / 340)) {
+    millivolt = pins.analogReadPin(AnalogPin.P0) * (1000 / 340)
+    if (millivolt < 1200) {
         music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
     } else {
         music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
